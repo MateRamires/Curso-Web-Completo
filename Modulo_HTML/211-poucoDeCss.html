@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Um Pouco de CSS</title>
+
+        <link rel="stylesheet" href="211-poucoDeCss.css">
+        
+        <style>
+            h1 {
+                font-size: 20px;
+            }
+
+            .fundoVermelho {
+                background-color: red;
+            }
+
+            .negrito {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS</h1>
+        <span id="textoPrincipal">Texto 1</span><br><br><br>
+        <span class="fundoVermelho negrito">Texto 2</span><br><br>
+        <span class="fundoVermelho" atrib-personalizado>Texto 3</span> <!-- Pode ser criado atributos personalizados no HTML --> 
+    </body>
+</html>
+
+<!-- No console dentro do browser, pode se usar o comando "document.querySelector("#textoPrincipal")" por exemplo, para ele devolver
+os elementos html que possuem o ID textoPrincipal -->

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+    <link rel="stylesheet" href="css/externo.css"> <!-- A prioridade eh definida pela ordem de processamento, entao a prioridade aqui sera o arquivo css ja que ele foi processado depois da tag style. -->
+</head>
+
+<body>
+    <h1>E agora?</h1>
+</body>
+
+</html>
+<!-- style dentro da propria tag sempre tem maior prioridade, mas nao eh recomendado, o certo eh o css sempre estar dentro de um arquivo .css -->

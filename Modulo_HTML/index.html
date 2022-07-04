@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios HTML</title>
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercicios HTML</h1>
+    </header>
+
+    <nav>
+        <a href custom-nav="exercicios/213-teste.html">00 - Teste</a> | <!-- Foi aplicado a tag "a" um atributo customizado "custom-nav", podemos usar esse atributo customizado abaixo para selecionar todos as tags que contem esse atributo atravez da funcao queryselectorAll("[custom-nav]")-->
+        <a href custom-nav="exercicios/214-textoPuro.html">01 - Texto Puro</a> |
+        <a href custom-nav="exercicios/215-texto1.html">03 - Texto 1</a> |
+        <a href custom-nav="exercicios/216-texto2.html">04 - Texto 2</a> |
+        <a href custom-nav="exercicios/217-listas.html">05 - Listas</a>  |
+        <a href custom-nav="exercicios/220-links.html">06 - Links</a>  |
+        <a href custom-nav="exercicios/222-tabelas.html">07 - Tabelas</a>  |
+        <a href custom-nav="exercicios/form/223-form.html">08 - Formularios</a>  |
+        <a href custom-nav="exercicios/226-imagens.html">09 - Imagens</a>  |
+        <a href custom-nav="exercicios/227-video.html">10 - Videos</a>  |
+        <a href custom-nav="exercicios/231-tagsNaoVisuais.html">11 - Tags Nao Visuais</a> 
+    </nav>
+
+    <section id="conteudo"></section>
+
+    <footer>
+        Curso de Web Moderno
+    </footer>
+
+    <script>
+        document.querySelectorAll("[custom-nav]").forEach(link => { //O comando"document.querySelectorAll" vai "pegar" todas as tags que forem passadas ao parametro, nesse caso, ele ira analisar todas as tags a (tags referentes aos links).
+            const conteudo = document.getElementById("conteudo") //Passamos a variavel conteudo a referencia para a tag section com id = "conteudo", agora com essa referencia, podemos passar valores a esta variavel e a section com id = conteudo ira receber esse valor e coloca-lo no html principal.
+
+            link.onclick = function(e){ //Apos selecionar todas as tags "a" nos iremos pegar todos os resultados que foram capturados desta pesquisa e dar um forEach em cima deles. Apos isso, cada elemento analisado tera uma funcao associada ao clicar nestes elementos, ou seja cada vez que clicarmos em um link, este link ira disparar um evento que esta dentro dessa funcao.
+                e.preventDefault() //Esse comando ira previnir que o link mande o usuario ao link em questao ao clica-lo, ele impede o funcionamento default de um link.
+                //console.log("Acao!!") //Apos impedir o funcionamento default do link, ele ira imprimir no console (nao na tela) do site, essa mensagem "Acao!!". 
+
+                fetch(link.getAttribute("custom-nav")) //A funcao fetch retorna uma promise. Passamos a essa funcao o conteudo contido no atributo customizado custom-nav, que no caso eh o link para uma outra pagina html.
+                    .then(resp => resp.text()) //Como a funcao fetch retorna uma promise, usamos a sintaxe .then para receber o conteudo contido dentro das paginas html que estao sendo analisadas. O resp aqui eh todo o conteudo que tinha nessa pagina, porem como queremos apenas o texto contido nessa pagina usamos a funcao "text()" junto ao resp para pegarmos apenas o texto da pagina.
+                    .then(texto => conteudo.innerHTML = texto) //Agora com todo o texto da pagina analisada em maos, usamos o conteudo (section) e passamos para o innerHTML dele o texto recebido da pagina HTML analisada, e assim, o nav dentro da pagina index.html contera o texto recebido da pagina que esta sendo analisada (teste.html).
+            }
+        }) //Resumindo o funcionamento: O comando "querySelectorAll("[custom-nav]")" ira pegar todos as tags que possuem o atributo custom-nav e coloca-los num array. Por ser um array, usamos depois o forEach que ira passar por todos os elementos que foram pegos no querySelector (no caso, os 2 "a"). Apos isso, criamos uma funcao que eh ativada quando o usuario clica em qualquer um desses links. Dentro dessa funcao chamamos a funcao fetch, que retorna uma promise, sendo assim usamos a sintaxe .then para receber o conteudo recebido dentro de cada um dos links.
+    </script>
+</body>
+</html>
+
+<!-- Para iniciar um servidor Node, basta usar o comando "http-server ." no terminal, para iniciar o servidor na pasta atual e na porta 8080 por padrao.
+Para iniciar em outra porta, basta usar o comando "http-server -p (numero_porta)".
+-->
+

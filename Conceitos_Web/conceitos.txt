@@ -1,0 +1,6 @@
+Um link eh composto pela url: https://www.google.com/ - Porem, pode ser passado parametros nessa url usando o "?" e passando os parametros.
+Por exemplo: https://www.google.com/search?q=linux&hl=pt-BR - Apos o "?" foi passado os parametros de q (querry) e o hl (linguagem) com o valor atribuido.
+Quando a requisicao eh do tipo Get (como no caso acima), os parametros sao passados na propria url, se fossem outros tipos de requisicao como post, ai seria passado no corpo da requisicao (nao visivel na url direto).
+
+Para ter um certificado SSL e habilitar https num servidor, pode usar o lets encrypt.com que eh um site que permite de graça habilitar o SSL com poucas desvantagens para um SSL pago. 
+

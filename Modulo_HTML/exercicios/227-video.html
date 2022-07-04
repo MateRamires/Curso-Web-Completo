@@ -1,0 +1,52 @@
+<h1>Videos</h1>
+
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload"> <!-- controls: permite opcoes de controle no video (pause, download, barra de progresso), autoplay: o video da autoplay ao abrir a pagina, controlsList = permite controlar o que vai ou nao aparecer na lista de controle.-->
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4"> <!-- Pode se usar o src na propria tag video ou criar dentro da tag video, uma tag source, a vantagem disso eh que voce pode colocar varios links de videos e caso o primeiro nao seja suportado ou esteja indisponivel, o segundo ira dar play e assim por diante. -->
+    Seu Browser nao suporta a tag de video. <!-- E no fim vc pode colocar uma mensagem padrao caso nenhum outro link funcione antes dessa msg. -->
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso{
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+
+    .progresso div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+    function configurarVideo(id){ //Essa funcao pega um id qualquer de um video.
+        const video = document.getElementById(id) //Como eh passado o id, entao usamos o metodo getElementsById para pegar o video atraves do id passado.
+        video.oncontextmenu = () => false //Esse metodo oncontextmenu desativa (ou ativa) o menu do video (botao direito do mouse), como estamos retornando false atraves da arrow function, entao ele vai desativar o menu.
+
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play() //Aqui estamos filtrando nao so pelo atributo mas tambem pelo id especifico. Apos isso associamos o querryselector a um onclick, e nesse onclick passamos a funcao que tem video.play em seu corpo, que basicamente faz o video dar play.
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+        }, 500)
+    }
+
+    configurarVideo('meuVideo')
+</script>

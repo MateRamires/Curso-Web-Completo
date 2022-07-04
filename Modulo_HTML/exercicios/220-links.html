@@ -1,0 +1,24 @@
+<h1 id="inicio">Links</h1>
+
+<!-- URLs Absolutas-->
+<a href="http://www.google.com.br">Google 1</a>
+<a href="http://www.google.com.br" target="_blank">Google 2</a><br> <!-- Forma de fazer com que o link abra em uma nova aba. -->
+
+<!-- URL Relativa-->
+<a href="index.html">Voltar 1</a> <!-- Permanece na pasta atual. -->
+<a href="/index.html">Voltar 2</a> <!-- Ira acessar a pasta raiz da aplicacao (a pasta em que o http-server esta servindo, no caso Modulo_HTML). -->
+<a href="../index.html">Voltar 3</a><br><br> <!-- Sai da pasta atual para cada 2 pontos, entao se tiver ../../ ele ira sair de 2 pastas. -->
+<!-- No caso de estar na propria tela index.html todos os 3 irao dar certo ao clicar, o 3 que vai dar certo pois mesmo existindo pastas anteriores a Modulo_HTML, a pasta Modulo_HTML eh a que esta sendo servida pelo http-server, entao nao ha como voltar para pastas como curso web moderno, ou seja, nao importa quantos ../../ eu usar, ele sempre ira dar certo, pois sempre sera mantido na pasta Modulo_HTML. -->
+
+<!-- Mandar Emails atravez do link. -->
+<a href="mailto:email@empresa.com.br">Entre em contato</a><br><br>
+
+<!-- Usando div#noticia diz para o VS que eh para ele criar uma div com a id "noticia", poderia usar div.teste que diz que eh para criar uma div com a classe "teste" -->
+<div id="noticia" style="position:absolute;top:2000px">
+    <h1>Noticia bomba</h1>
+    <p>Nao era nada :)</p>
+    <a href="#inicio">Voltar para o inicio</a>
+</div>
+
+<!--Forma de referenciar algum id dentro da propria pagina, para que o usuario clique e seja redirecionado ao id especificado. Navegar dentro da propria pagina (Ancora). -->
+<a href="#noticia">Ir para Noticia bombastica</a>

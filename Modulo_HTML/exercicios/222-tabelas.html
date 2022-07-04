@@ -1,0 +1,56 @@
+<table>
+    <caption>Produtos</caption>
+    <thead> <!-- thead, tbody sao mudam nada na tabela, mas por questao de semantica, eh bom colocar. -->
+        <tr>
+            <th>Produto</th>
+            <th>Preco</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>iPad</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Samsung S9</td>
+            <td>2669,00</td>
+            <td>1</td>
+            <td>2669,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td> <!-- colspan indica quantas colunas ira ocupar a coluna atual, nesse caso colocamos 3 colunas. E o rowspan para linhas. -->
+            <td>19243,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    thead tr { /* Apenas nos "tr" que estao dentro dos "thead" faca tal coisa. */
+        border-bottom: solid 3px #444;
+    }
+
+    tbody tr:hover { /* Apenas nos tr dentro do tbody, quando o usuario passar o mouse faca tal coisa. */
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>
